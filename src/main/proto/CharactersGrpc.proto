@@ -1,0 +1,124 @@
+syntax = "proto3";
+
+package com.andrioseptianto.marvelous;
+
+option java_multiple_files = true;
+option java_package = "com.andrioseptianto.marvelous";
+option java_outer_classname = "MarvelGrpcImpl";
+
+// Request message for Marvel API
+message MarvelCharactersRequest {
+  string apikey = 1;
+  string hash = 2;
+  string ts = 3;
+  string name = 4;
+  string nameStartsWith = 5;
+  string modifiedSince = 6;
+  repeated int32 comics = 7;
+  repeated int32 series = 8;
+  repeated int32 events = 9;
+  repeated int32 stories = 10;
+  string orderBy = 11;
+  int32 limit = 12;
+  int32 offset = 13;
+}
+
+message MarvelApiError {
+  int32 code = 1;
+  string status = 2;
+}
+
+message MarvelCharactersResponse {
+  int32 code = 1;
+  string status = 2;
+  string copyright = 3;
+  string attributionText = 4;
+  string attributionHTML = 5;
+  Data data = 6;
+  string etag = 7;
+
+  message Data {
+    int32 offset = 1;
+    int32 limit = 2;
+    int32 total = 3;
+    int32 count = 4;
+    repeated Result results = 5;
+
+    message Result {
+      int32 id = 1;
+      string name = 2;
+      string description = 3;
+      string modified = 4;
+      string resourceURI = 5;
+      repeated URL urls = 6;
+      Thumbnail thumbnail = 7;
+      Comics comics = 8;
+      Stories stories = 9;
+      Events events = 10;
+      Series series = 11;
+
+      message URL {
+        string type = 1;
+        string url = 2;
+      }
+
+      message Thumbnail {
+        string path = 1;
+        string extension = 2;
+      }
+
+      message Comics {
+        int32 available = 1;
+        int32 returned = 2;
+        string collectionURI = 3;
+        repeated Item items = 4;
+
+        message Item {
+          string resourceURI = 1;
+          string name = 2;
+        }
+      }
+
+      message Stories {
+        int32 available = 1;
+        int32 returned = 2;
+        string collectionURI = 3;
+        repeated Item items = 4;
+
+        message Item {
+          string resourceURI = 1;
+          string name = 2;
+          string type = 3;
+        }
+      }
+
+      message Events {
+        int32 available = 1;
+        int32 returned = 2;
+        string collectionURI = 3;
+        repeated Item items = 4;
+
+        message Item {
+          string resourceURI = 1;
+          string name = 2;
+        }
+      }
+
+      message Series {
+        int32 available = 1;
+        int32 returned = 2;
+        string collectionURI = 3;
+        repeated Item items = 4;
+
+        message Item {
+          string resourceURI = 1;
+          string name = 2;
+        }
+      }
+    }
+  }
+}
+
+service MarvelService {
+  rpc GetCharacters (MarvelCharactersRequest) returns (MarvelCharactersResponse) {}
+}

@@ -1,0 +1,14 @@
+## Remove .template from the file name and update the values below
+
+spring.application.name=marvelous
+management.endpoints.web.exposure.include=*
+management.endpoint.prometheus.enabled=true
+management.prometheus.metrics.export.enabled=true
+
+spring.data.redis.host=redis
+spring.data.redis.port=6379
+spring.data.redis.ssl.enabled=false
+
+marvel.api.baseUrl=https://gateway.marvel.com:443/v1/public
+marvel.api.publicKey=YOUR_PUBLIC_KEY
+marvel.api.privateKey=YOUR_PRIVATE_KEY

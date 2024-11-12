@@ -1,0 +1,26 @@
+# Ignore application.properties
+src/main/resources/application.properties
+
+# Ignore IntelliJ IDEA project files
+.idea/
+*.iml
+
+# Ignore Maven target directory
+target/
+
+# Ignore logs
+*.log
+
+# Ignore OS-specific files
+.DS_Store
+Thumbs.db
+
+# Ignore compiled Java files
+*.class
+
+# Ignore temporary files
+*.tmp
+*.swp
+
+# Ignore Maven build files
+.mvn/wrapper/
