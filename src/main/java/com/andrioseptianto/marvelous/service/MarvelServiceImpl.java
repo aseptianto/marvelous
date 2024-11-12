@@ -5,8 +5,8 @@ import com.andrioseptianto.marvelous.config.MarvelApiConfig;
 import com.andrioseptianto.marvelous.metrics.CacheMetrics;
 import com.andrioseptianto.marvelous.model.*;
 import com.andrioseptianto.marvelous.util.HashUtil;
-import com.fasterxml.jackson.databind.JsonNode;
-import com.fasterxml.jackson.databind.ObjectMapper;
+import com.andrioseptianto.marvelous.util.HttpStatusUtil;
+import com.andrioseptianto.marvelous.util.MarvelUriUtil;
 import io.grpc.stub.StreamObserver;
 import net.devh.boot.grpc.server.service.GrpcService;
 import org.slf4j.Logger;
@@ -16,6 +16,7 @@ import org.springframework.web.client.HttpStatusCodeException;
 import org.springframework.web.client.RestTemplate;
 import org.springframework.web.util.UriComponentsBuilder;
 
+import java.util.Base64;
 import java.util.concurrent.TimeUnit;
 
 @GrpcService
@@ -44,7 +45,7 @@ public class MarvelServiceImpl extends MarvelServiceGrpc.MarvelServiceImplBase {
         logger.info("request tostring: {}", request.toString());
 
         // Check if the request is already in cache
-        String cacheKey = "characters_" + request;
+        String cacheKey = "characters_" + Base64.getEncoder().encodeToString(request.toByteArray());
         MarvelCharactersResponse cachedResponse = (MarvelCharactersResponse) charactersResponseRedisTemplate.opsForValue().get(cacheKey);
 
         if (cachedResponse != null) {
@@ -64,42 +65,8 @@ public class MarvelServiceImpl extends MarvelServiceGrpc.MarvelServiceImplBase {
             ts = String.valueOf(System.currentTimeMillis());
             hash = HashUtil.generateHash(ts, marvelApiConfig.getPrivateKey(), marvelApiConfig.getPublicKey());
         }
-        UriComponentsBuilder uriBuilder = UriComponentsBuilder.fromHttpUrl(marvelApiConfig.getBaseUrl() + "/characters")
-                .queryParam("apikey", request.getApikey())
-                .queryParam("hash", hash)
-                .queryParam("ts", ts);
 
-        if (!request.getName().isEmpty()) {
-            uriBuilder.queryParam("name", request.getName());
-        }
-        if (!request.getNameStartsWith().isEmpty()) {
-            uriBuilder.queryParam("nameStartsWith", request.getNameStartsWith());
-        }
-        if (!request.getModifiedSince().isEmpty()) {
-            uriBuilder.queryParam("modifiedSince", request.getModifiedSince());
-        }
-        if (!request.getComicsList().isEmpty()) {
-            uriBuilder.queryParam("comics", String.join(",", request.getComicsList().stream().map(String::valueOf).toArray(String[]::new)));
-        }
-        if (!request.getSeriesList().isEmpty()) {
-            uriBuilder.queryParam("series", String.join(",", request.getSeriesList().stream().map(String::valueOf).toArray(String[]::new)));
-        }
-        if (!request.getEventsList().isEmpty()) {
-            uriBuilder.queryParam("events", String.join(",", request.getEventsList().stream().map(String::valueOf).toArray(String[]::new)));
-        }
-        if (!request.getStoriesList().isEmpty()) {
-            uriBuilder.queryParam("stories", String.join(",", request.getStoriesList().stream().map(String::valueOf).toArray(String[]::new)));
-        }
-        if (!request.getOrderBy().isEmpty()) {
-            uriBuilder.queryParam("orderBy", request.getOrderBy());
-        }
-        if (request.getLimit() != 0) {
-            uriBuilder.queryParam("limit", request.getLimit());
-        }
-        if (request.getOffset() != 0) {
-            uriBuilder.queryParam("offset", request.getOffset());
-        }
-
+        UriComponentsBuilder uriBuilder = MarvelUriUtil.buildUri(marvelApiConfig.getBaseUrl(), request, hash, ts);
         String url = uriBuilder.toUriString();
 
         try {
@@ -135,7 +102,7 @@ public class MarvelServiceImpl extends MarvelServiceGrpc.MarvelServiceImplBase {
             logger.error("e.getStatusCode().value(): {}", e.getStatusCode().value());
             MarvelApiError error = MarvelApiError.newBuilder()
                     .setCode(e.getStatusCode().value())
-                    .setStatus(getStatusMessage(e))
+                    .setStatus(HttpStatusUtil.getStatusMessage(e))
                     .build();
             MarvelApiErrorResponse.handleError(responseObserver, error);
         } catch (Exception e) {
@@ -146,19 +113,6 @@ public class MarvelServiceImpl extends MarvelServiceGrpc.MarvelServiceImplBase {
                     .build();
             MarvelApiErrorResponse.handleError(responseObserver, error);
         }
-    }
-
-    // Extract status message from HttpStatusCodeException
-    private static String getStatusMessage(HttpStatusCodeException e) {
-        String statusMessage = "Unknown error";
-        try {
-            ObjectMapper mapper = new ObjectMapper();
-            JsonNode root = mapper.readTree(e.getResponseBodyAsString());
-            statusMessage = root.path("status").asText();
-        } catch (Exception ex) {
-            logger.error("Unable to parse error response", ex);
-        }
-        return statusMessage;
     }
 
     // Convert API response of Data to gRPC response
