@@ -1,0 +1,1891 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Protobuf module documentation</title>
+    <link rel="stylesheet" href="static/mystyles.css" />
+    <script src="static/fontawesome.js"></script>
+    <script src="static/lunr.js"></script>
+    <script src="static/theme.js"></script>
+  </head>
+  <body>
+    <div class="container">
+      <nav class="level pt-6 mb-5 pb-2 bottom-border">
+        <div class="level-left">
+          <p class="level-item has-text-centered is-size-3 has-text-weight-medium">
+            <a class="link is-info" href="index.html">
+              Protobuf module documentation
+            </a>
+          </p>
+        </div>
+
+        <div class="level-right">
+          
+          <form action="search.html" class="mr-2 has-text-centered">
+            <input type="text" name="query" class="input mr-3 navbar-search-query-input" placeholder="Search">
+            <input type="submit" class="button is-primary mr-5" value="Search" />
+          </form>
+          
+
+          <p class="level-item has-text-centered is-size-5">
+            <a href="" class="link is-info mr-5" target="_blank">
+              
+              <span>Source</span>
+            </a>
+
+            <button class="theme-toggle" id="theme-toggle" title="Toggles light & dark" aria-label="auto" aria-live="polite" type="button">
+              <svg class="sun-and-moon" aria-hidden="true" width="24" height="24" viewBox="0 0 24 24">
+                <mask class="moon" id="moon-mask">
+                  <rect x="0" y="0" width="100%" height="100%" fill="white" />
+                  <circle cx="24" cy="10" r="6" fill="black" />
+                </mask>
+                <circle class="sun" cx="12" cy="12" r="6" mask="url(#moon-mask)" fill="currentColor" />
+                <g class="sun-beams" stroke="currentColor">
+                  <line x1="12" y1="1" x2="12" y2="3" />
+                  <line x1="12" y1="21" x2="12" y2="23" />
+                  <line x1="4.22" y1="4.22" x2="5.64" y2="5.64" />
+                  <line x1="18.36" y1="18.36" x2="19.78" y2="19.78" />
+                  <line x1="1" y1="12" x2="3" y2="12" />
+                  <line x1="21" y1="12" x2="23" y2="12" />
+                  <line x1="4.22" y1="19.78" x2="5.64" y2="18.36" />
+                  <line x1="18.36" y1="5.64" x2="19.78" y2="4.22" />
+                </g>
+              </svg>
+            </button>
+          </p>
+        </div>
+      </nav>
+    </div>
+
+    <div id="main-content" class="container mb-6">
+  <p class="mb-2">
+    <a style="font-size: 0.9em" href="index.html">← Back to packages</a>
+  </p>
+  <h3 class="title is-3">
+    
+    Package <code>com.andrioseptianto.marvelous</code>
+    
+  </h3>
+
+  <div class="block">
+    
+    <p>
+      <a href="#service-com.andrioseptianto.marvelous.MarvelService">
+        <span class="tag" style="min-width: 6em">Service</span>
+        <code>MarvelService</code> 
+      </a>
+    </p>
+    
+
+    
+      
+      <p>
+        <a href="#message-com.andrioseptianto.marvelous.MarvelCharactersResponse.Data.Result.Comics">
+          <span class="tag" style="min-width: 6em">Message</span>
+          <code>Comics</code> 
+        </a>
+      </p>
+      
+    
+      
+      <p>
+        <a href="#message-com.andrioseptianto.marvelous.MarvelCharactersResponse.Data">
+          <span class="tag" style="min-width: 6em">Message</span>
+          <code>Data</code> 
+        </a>
+      </p>
+      
+    
+      
+      <p>
+        <a href="#message-com.andrioseptianto.marvelous.MarvelCharactersResponse.Data.Result.Events">
+          <span class="tag" style="min-width: 6em">Message</span>
+          <code>Events</code> 
+        </a>
+      </p>
+      
+    
+      
+      <p>
+        <a href="#message-com.andrioseptianto.marvelous.MarvelCharactersResponse.Data.Result.Comics.Item">
+          <span class="tag" style="min-width: 6em">Message</span>
+          <code>Item</code> 
+        </a>
+      </p>
+      
+    
+      
+      <p>
+        <a href="#message-com.andrioseptianto.marvelous.MarvelCharactersResponse.Data.Result.Stories.Item">
+          <span class="tag" style="min-width: 6em">Message</span>
+          <code>Item</code> 
+        </a>
+      </p>
+      
+    
+      
+      <p>
+        <a href="#message-com.andrioseptianto.marvelous.MarvelCharactersResponse.Data.Result.Events.Item">
+          <span class="tag" style="min-width: 6em">Message</span>
+          <code>Item</code> 
+        </a>
+      </p>
+      
+    
+      
+      <p>
+        <a href="#message-com.andrioseptianto.marvelous.MarvelCharactersResponse.Data.Result.Series.Item">
+          <span class="tag" style="min-width: 6em">Message</span>
+          <code>Item</code> 
+        </a>
+      </p>
+      
+    
+      
+      <p>
+        <a href="#message-com.andrioseptianto.marvelous.MarvelApiError">
+          <span class="tag" style="min-width: 6em">Message</span>
+          <code>MarvelApiError</code> 
+        </a>
+      </p>
+      
+    
+      
+      <p>
+        <a href="#message-com.andrioseptianto.marvelous.MarvelCharactersRequest">
+          <span class="tag" style="min-width: 6em">Message</span>
+          <code>MarvelCharactersRequest</code> 
+        </a>
+      </p>
+      
+    
+      
+      <p>
+        <a href="#message-com.andrioseptianto.marvelous.MarvelCharactersResponse">
+          <span class="tag" style="min-width: 6em">Message</span>
+          <code>MarvelCharactersResponse</code> 
+        </a>
+      </p>
+      
+    
+      
+      <p>
+        <a href="#message-com.andrioseptianto.marvelous.MarvelCharactersResponse.Data.Result">
+          <span class="tag" style="min-width: 6em">Message</span>
+          <code>Result</code> 
+        </a>
+      </p>
+      
+    
+      
+      <p>
+        <a href="#message-com.andrioseptianto.marvelous.MarvelCharactersResponse.Data.Result.Series">
+          <span class="tag" style="min-width: 6em">Message</span>
+          <code>Series</code> 
+        </a>
+      </p>
+      
+    
+      
+      <p>
+        <a href="#message-com.andrioseptianto.marvelous.MarvelCharactersResponse.Data.Result.Stories">
+          <span class="tag" style="min-width: 6em">Message</span>
+          <code>Stories</code> 
+        </a>
+      </p>
+      
+    
+      
+      <p>
+        <a href="#message-com.andrioseptianto.marvelous.MarvelCharactersResponse.Data.Result.Thumbnail">
+          <span class="tag" style="min-width: 6em">Message</span>
+          <code>Thumbnail</code> 
+        </a>
+      </p>
+      
+    
+      
+      <p>
+        <a href="#message-com.andrioseptianto.marvelous.MarvelCharactersResponse.Data.Result.URL">
+          <span class="tag" style="min-width: 6em">Message</span>
+          <code>URL</code> 
+        </a>
+      </p>
+      
+    
+
+    
+  </div>
+
+  <div class="block">
+      
+  </div>
+
+  
+
+  <div class="block">
+    <h3 class="title is-3">
+      Services
+    </h3>
+
+    
+    <div>
+      
+
+<h4 class="title is-4 type-heading" id="service-com.andrioseptianto.marvelous.MarvelService">
+  <a href="#service-com.andrioseptianto.marvelous.MarvelService" title="com.andrioseptianto.marvelous.MarvelService">service MarvelService</a>
+  
+</h4>
+
+<div class="block content">
+  <p></p>
+</div>
+
+
+<div class="box">
+  <div class="block">
+    <h5 class="title is-5" id="service-com.andrioseptianto.marvelous.MarvelService-GetCharacters">
+      <a href="#service-com.andrioseptianto.marvelous.MarvelService-GetCharacters">
+        rpc <code>GetCharacters</code>
+      </a>
+    </h5>
+    Request: <code><a href="com.andrioseptianto.marvelous.html#message-com.andrioseptianto.marvelous.MarvelCharactersRequest"><span title="com.andrioseptianto.marvelous.MarvelCharactersRequest">com.andrioseptianto.marvelous.MarvelCharactersRequest</span>
+    </a></code><br>
+    Response: <code><a href="com.andrioseptianto.marvelous.html#message-com.andrioseptianto.marvelous.MarvelCharactersResponse"><span title="com.andrioseptianto.marvelous.MarvelCharactersResponse">com.andrioseptianto.marvelous.MarvelCharactersResponse</span>
+    </a></code><br>
+  </div>
+
+  
+  <div class="block">
+    <p><p>Get a list of characters</p></p>
+  </div>
+  
+</div>
+ 
+    </div>
+    
+  </div>
+
+  
+
+  
+
+    <h3 class="title is-3">
+      Messages
+    </h3>
+
+    
+      
+      <div class="block">
+        
+
+<h4 class="title is-4 type-heading" id="message-com.andrioseptianto.marvelous.MarvelCharactersResponse.Data.Result.Comics">
+  <span>
+    <a href="#message-com.andrioseptianto.marvelous.MarvelCharactersResponse.Data.Result.Comics" title="com.andrioseptianto.marvelous.MarvelCharactersResponse.Data.Result.Comics">message Comics</a>
+  
+    <span style="font-size: 0.7em; font-weight: normal">(Nested in <a href="com.andrioseptianto.marvelous.html#message-com.andrioseptianto.marvelous.MarvelCharactersResponse.Data.Result"><span title="com.andrioseptianto.marvelous.MarvelCharactersResponse.Data.Result">com.andrioseptianto.marvelous.MarvelCharactersResponse.Data.Result</span>
+    </a>)</span>
+  
+  </span>
+  
+</h4>
+
+<div class="block content">
+  
+</div>
+
+<table class="table is-fullwidth is-hoverable is-bordered">
+  <thead>
+    <tr>
+      <th></th>
+      <th>Field</th>
+      <th>Type</th>
+      <th>Description</th>
+      
+    </tr>
+  </thead>
+  <tbody>
+    
+    <tr>
+      <td>1</td>
+      <td>
+        available
+      </td>
+      <td>
+        <code title="int32">
+          
+          <span>int32</span>
+        </code>
+      </td>
+      <td class="content"><p>The number of available comics in this list</p></td>
+      
+    </tr>
+    
+    <tr>
+      <td>2</td>
+      <td>
+        returned
+      </td>
+      <td>
+        <code title="int32">
+          
+          <span>int32</span>
+        </code>
+      </td>
+      <td class="content"><p>The number of returned comics in this collection</p></td>
+      
+    </tr>
+    
+    <tr>
+      <td>3</td>
+      <td>
+        collectionURI
+      </td>
+      <td>
+        <code title="string">
+          
+          <span>string</span>
+        </code>
+      </td>
+      <td class="content"><p>The path to the full list of comics in this collection</p></td>
+      
+    </tr>
+    
+    <tr>
+      <td>4</td>
+      <td>
+        items
+      </td>
+      <td>
+        <code title="com.andrioseptianto.marvelous.MarvelCharactersResponse.Data.Result.Comics.Item">
+          
+            repeated
+          
+          <a href="com.andrioseptianto.marvelous.html#message-com.andrioseptianto.marvelous.MarvelCharactersResponse.Data.Result.Comics.Item"><span title="com.andrioseptianto.marvelous.MarvelCharactersResponse.Data.Result.Comics.Item">com.andrioseptianto.marvelous.MarvelCharactersResponse.Data.Result.Comics.Item</span>
+    </a>
+        </code>
+      </td>
+      <td class="content"><p>The list of returned comics</p></td>
+      
+    </tr>
+    
+    
+  </tbody>
+</table>
+ 
+      </div>
+      
+    
+      
+      <div class="block">
+        
+
+<h4 class="title is-4 type-heading" id="message-com.andrioseptianto.marvelous.MarvelCharactersResponse.Data">
+  <span>
+    <a href="#message-com.andrioseptianto.marvelous.MarvelCharactersResponse.Data" title="com.andrioseptianto.marvelous.MarvelCharactersResponse.Data">message Data</a>
+  
+    <span style="font-size: 0.7em; font-weight: normal">(Nested in <a href="com.andrioseptianto.marvelous.html#message-com.andrioseptianto.marvelous.MarvelCharactersResponse"><span title="com.andrioseptianto.marvelous.MarvelCharactersResponse">com.andrioseptianto.marvelous.MarvelCharactersResponse</span>
+    </a>)</span>
+  
+  </span>
+  
+</h4>
+
+<div class="block content">
+  
+</div>
+
+<table class="table is-fullwidth is-hoverable is-bordered">
+  <thead>
+    <tr>
+      <th></th>
+      <th>Field</th>
+      <th>Type</th>
+      <th>Description</th>
+      
+    </tr>
+  </thead>
+  <tbody>
+    
+    <tr>
+      <td>1</td>
+      <td>
+        offset
+      </td>
+      <td>
+        <code title="int32">
+          
+          <span>int32</span>
+        </code>
+      </td>
+      <td class="content"><p>The requested offset (number of skipped results) of the call</p></td>
+      
+    </tr>
+    
+    <tr>
+      <td>2</td>
+      <td>
+        limit
+      </td>
+      <td>
+        <code title="int32">
+          
+          <span>int32</span>
+        </code>
+      </td>
+      <td class="content"><p>The requested result limit</p></td>
+      
+    </tr>
+    
+    <tr>
+      <td>3</td>
+      <td>
+        total
+      </td>
+      <td>
+        <code title="int32">
+          
+          <span>int32</span>
+        </code>
+      </td>
+      <td class="content"><p>The total number of resources available given the current filter set</p></td>
+      
+    </tr>
+    
+    <tr>
+      <td>4</td>
+      <td>
+        count
+      </td>
+      <td>
+        <code title="int32">
+          
+          <span>int32</span>
+        </code>
+      </td>
+      <td class="content"><p>The total number of results returned by this call</p></td>
+      
+    </tr>
+    
+    <tr>
+      <td>5</td>
+      <td>
+        results
+      </td>
+      <td>
+        <code title="com.andrioseptianto.marvelous.MarvelCharactersResponse.Data.Result">
+          
+            repeated
+          
+          <a href="com.andrioseptianto.marvelous.html#message-com.andrioseptianto.marvelous.MarvelCharactersResponse.Data.Result"><span title="com.andrioseptianto.marvelous.MarvelCharactersResponse.Data.Result">com.andrioseptianto.marvelous.MarvelCharactersResponse.Data.Result</span>
+    </a>
+        </code>
+      </td>
+      <td class="content"><p>The list of characters returned by the request</p></td>
+      
+    </tr>
+    
+    
+  </tbody>
+</table>
+ 
+      </div>
+      
+    
+      
+      <div class="block">
+        
+
+<h4 class="title is-4 type-heading" id="message-com.andrioseptianto.marvelous.MarvelCharactersResponse.Data.Result.Events">
+  <span>
+    <a href="#message-com.andrioseptianto.marvelous.MarvelCharactersResponse.Data.Result.Events" title="com.andrioseptianto.marvelous.MarvelCharactersResponse.Data.Result.Events">message Events</a>
+  
+    <span style="font-size: 0.7em; font-weight: normal">(Nested in <a href="com.andrioseptianto.marvelous.html#message-com.andrioseptianto.marvelous.MarvelCharactersResponse.Data.Result"><span title="com.andrioseptianto.marvelous.MarvelCharactersResponse.Data.Result">com.andrioseptianto.marvelous.MarvelCharactersResponse.Data.Result</span>
+    </a>)</span>
+  
+  </span>
+  
+</h4>
+
+<div class="block content">
+  
+</div>
+
+<table class="table is-fullwidth is-hoverable is-bordered">
+  <thead>
+    <tr>
+      <th></th>
+      <th>Field</th>
+      <th>Type</th>
+      <th>Description</th>
+      
+    </tr>
+  </thead>
+  <tbody>
+    
+    <tr>
+      <td>1</td>
+      <td>
+        available
+      </td>
+      <td>
+        <code title="int32">
+          
+          <span>int32</span>
+        </code>
+      </td>
+      <td class="content"><p>The number of available events in this list</p></td>
+      
+    </tr>
+    
+    <tr>
+      <td>2</td>
+      <td>
+        returned
+      </td>
+      <td>
+        <code title="int32">
+          
+          <span>int32</span>
+        </code>
+      </td>
+      <td class="content"><p>The number of returned events in this collection</p></td>
+      
+    </tr>
+    
+    <tr>
+      <td>3</td>
+      <td>
+        collectionURI
+      </td>
+      <td>
+        <code title="string">
+          
+          <span>string</span>
+        </code>
+      </td>
+      <td class="content"><p>The path to the full list of events in this collection</p></td>
+      
+    </tr>
+    
+    <tr>
+      <td>4</td>
+      <td>
+        items
+      </td>
+      <td>
+        <code title="com.andrioseptianto.marvelous.MarvelCharactersResponse.Data.Result.Events.Item">
+          
+            repeated
+          
+          <a href="com.andrioseptianto.marvelous.html#message-com.andrioseptianto.marvelous.MarvelCharactersResponse.Data.Result.Events.Item"><span title="com.andrioseptianto.marvelous.MarvelCharactersResponse.Data.Result.Events.Item">com.andrioseptianto.marvelous.MarvelCharactersResponse.Data.Result.Events.Item</span>
+    </a>
+        </code>
+      </td>
+      <td class="content"><p>The list of returned events</p></td>
+      
+    </tr>
+    
+    
+  </tbody>
+</table>
+ 
+      </div>
+      
+    
+      
+      <div class="block">
+        
+
+<h4 class="title is-4 type-heading" id="message-com.andrioseptianto.marvelous.MarvelCharactersResponse.Data.Result.Comics.Item">
+  <span>
+    <a href="#message-com.andrioseptianto.marvelous.MarvelCharactersResponse.Data.Result.Comics.Item" title="com.andrioseptianto.marvelous.MarvelCharactersResponse.Data.Result.Comics.Item">message Item</a>
+  
+    <span style="font-size: 0.7em; font-weight: normal">(Nested in <a href="com.andrioseptianto.marvelous.html#message-com.andrioseptianto.marvelous.MarvelCharactersResponse.Data.Result.Comics"><span title="com.andrioseptianto.marvelous.MarvelCharactersResponse.Data.Result.Comics">com.andrioseptianto.marvelous.MarvelCharactersResponse.Data.Result.Comics</span>
+    </a>)</span>
+  
+  </span>
+  
+</h4>
+
+<div class="block content">
+  
+</div>
+
+<table class="table is-fullwidth is-hoverable is-bordered">
+  <thead>
+    <tr>
+      <th></th>
+      <th>Field</th>
+      <th>Type</th>
+      <th>Description</th>
+      
+    </tr>
+  </thead>
+  <tbody>
+    
+    <tr>
+      <td>1</td>
+      <td>
+        resourceURI
+      </td>
+      <td>
+        <code title="string">
+          
+          <span>string</span>
+        </code>
+      </td>
+      <td class="content"><p>The path to the individual comic resource</p></td>
+      
+    </tr>
+    
+    <tr>
+      <td>2</td>
+      <td>
+        name
+      </td>
+      <td>
+        <code title="string">
+          
+          <span>string</span>
+        </code>
+      </td>
+      <td class="content"><p>The canonical name of the comic</p></td>
+      
+    </tr>
+    
+    
+  </tbody>
+</table>
+ 
+      </div>
+      
+    
+      
+      <div class="block">
+        
+
+<h4 class="title is-4 type-heading" id="message-com.andrioseptianto.marvelous.MarvelCharactersResponse.Data.Result.Stories.Item">
+  <span>
+    <a href="#message-com.andrioseptianto.marvelous.MarvelCharactersResponse.Data.Result.Stories.Item" title="com.andrioseptianto.marvelous.MarvelCharactersResponse.Data.Result.Stories.Item">message Item</a>
+  
+    <span style="font-size: 0.7em; font-weight: normal">(Nested in <a href="com.andrioseptianto.marvelous.html#message-com.andrioseptianto.marvelous.MarvelCharactersResponse.Data.Result.Stories"><span title="com.andrioseptianto.marvelous.MarvelCharactersResponse.Data.Result.Stories">com.andrioseptianto.marvelous.MarvelCharactersResponse.Data.Result.Stories</span>
+    </a>)</span>
+  
+  </span>
+  
+</h4>
+
+<div class="block content">
+  
+</div>
+
+<table class="table is-fullwidth is-hoverable is-bordered">
+  <thead>
+    <tr>
+      <th></th>
+      <th>Field</th>
+      <th>Type</th>
+      <th>Description</th>
+      
+    </tr>
+  </thead>
+  <tbody>
+    
+    <tr>
+      <td>1</td>
+      <td>
+        resourceURI
+      </td>
+      <td>
+        <code title="string">
+          
+          <span>string</span>
+        </code>
+      </td>
+      <td class="content"><p>The path to the individual story resource</p></td>
+      
+    </tr>
+    
+    <tr>
+      <td>2</td>
+      <td>
+        name
+      </td>
+      <td>
+        <code title="string">
+          
+          <span>string</span>
+        </code>
+      </td>
+      <td class="content"><p>The canonical name of the story</p></td>
+      
+    </tr>
+    
+    <tr>
+      <td>3</td>
+      <td>
+        type
+      </td>
+      <td>
+        <code title="string">
+          
+          <span>string</span>
+        </code>
+      </td>
+      <td class="content"><p>The type of the story (interior or cover)</p></td>
+      
+    </tr>
+    
+    
+  </tbody>
+</table>
+ 
+      </div>
+      
+    
+      
+      <div class="block">
+        
+
+<h4 class="title is-4 type-heading" id="message-com.andrioseptianto.marvelous.MarvelCharactersResponse.Data.Result.Events.Item">
+  <span>
+    <a href="#message-com.andrioseptianto.marvelous.MarvelCharactersResponse.Data.Result.Events.Item" title="com.andrioseptianto.marvelous.MarvelCharactersResponse.Data.Result.Events.Item">message Item</a>
+  
+    <span style="font-size: 0.7em; font-weight: normal">(Nested in <a href="com.andrioseptianto.marvelous.html#message-com.andrioseptianto.marvelous.MarvelCharactersResponse.Data.Result.Events"><span title="com.andrioseptianto.marvelous.MarvelCharactersResponse.Data.Result.Events">com.andrioseptianto.marvelous.MarvelCharactersResponse.Data.Result.Events</span>
+    </a>)</span>
+  
+  </span>
+  
+</h4>
+
+<div class="block content">
+  
+</div>
+
+<table class="table is-fullwidth is-hoverable is-bordered">
+  <thead>
+    <tr>
+      <th></th>
+      <th>Field</th>
+      <th>Type</th>
+      <th>Description</th>
+      
+    </tr>
+  </thead>
+  <tbody>
+    
+    <tr>
+      <td>1</td>
+      <td>
+        resourceURI
+      </td>
+      <td>
+        <code title="string">
+          
+          <span>string</span>
+        </code>
+      </td>
+      <td class="content"><p>The path to the individual event resource</p></td>
+      
+    </tr>
+    
+    <tr>
+      <td>2</td>
+      <td>
+        name
+      </td>
+      <td>
+        <code title="string">
+          
+          <span>string</span>
+        </code>
+      </td>
+      <td class="content"><p>The canonical name of the event</p></td>
+      
+    </tr>
+    
+    
+  </tbody>
+</table>
+ 
+      </div>
+      
+    
+      
+      <div class="block">
+        
+
+<h4 class="title is-4 type-heading" id="message-com.andrioseptianto.marvelous.MarvelCharactersResponse.Data.Result.Series.Item">
+  <span>
+    <a href="#message-com.andrioseptianto.marvelous.MarvelCharactersResponse.Data.Result.Series.Item" title="com.andrioseptianto.marvelous.MarvelCharactersResponse.Data.Result.Series.Item">message Item</a>
+  
+    <span style="font-size: 0.7em; font-weight: normal">(Nested in <a href="com.andrioseptianto.marvelous.html#message-com.andrioseptianto.marvelous.MarvelCharactersResponse.Data.Result.Series"><span title="com.andrioseptianto.marvelous.MarvelCharactersResponse.Data.Result.Series">com.andrioseptianto.marvelous.MarvelCharactersResponse.Data.Result.Series</span>
+    </a>)</span>
+  
+  </span>
+  
+</h4>
+
+<div class="block content">
+  
+</div>
+
+<table class="table is-fullwidth is-hoverable is-bordered">
+  <thead>
+    <tr>
+      <th></th>
+      <th>Field</th>
+      <th>Type</th>
+      <th>Description</th>
+      
+    </tr>
+  </thead>
+  <tbody>
+    
+    <tr>
+      <td>1</td>
+      <td>
+        resourceURI
+      </td>
+      <td>
+        <code title="string">
+          
+          <span>string</span>
+        </code>
+      </td>
+      <td class="content"><p>The path to the individual series resource</p></td>
+      
+    </tr>
+    
+    <tr>
+      <td>2</td>
+      <td>
+        name
+      </td>
+      <td>
+        <code title="string">
+          
+          <span>string</span>
+        </code>
+      </td>
+      <td class="content"><p>The canonical name of the series</p></td>
+      
+    </tr>
+    
+    
+  </tbody>
+</table>
+ 
+      </div>
+      
+    
+      
+      <div class="block">
+        
+
+<h4 class="title is-4 type-heading" id="message-com.andrioseptianto.marvelous.MarvelApiError">
+  <span>
+    <a href="#message-com.andrioseptianto.marvelous.MarvelApiError" title="com.andrioseptianto.marvelous.MarvelApiError">message MarvelApiError</a>
+  
+  </span>
+  
+</h4>
+
+<div class="block content">
+  
+</div>
+
+<table class="table is-fullwidth is-hoverable is-bordered">
+  <thead>
+    <tr>
+      <th></th>
+      <th>Field</th>
+      <th>Type</th>
+      <th>Description</th>
+      
+    </tr>
+  </thead>
+  <tbody>
+    
+    <tr>
+      <td>1</td>
+      <td>
+        code
+      </td>
+      <td>
+        <code title="int32">
+          
+          <span>int32</span>
+        </code>
+      </td>
+      <td class="content"><p>HTTP status code</p></td>
+      
+    </tr>
+    
+    <tr>
+      <td>2</td>
+      <td>
+        status
+      </td>
+      <td>
+        <code title="string">
+          
+          <span>string</span>
+        </code>
+      </td>
+      <td class="content"><p>A string description of the error</p></td>
+      
+    </tr>
+    
+    
+  </tbody>
+</table>
+ 
+      </div>
+      
+    
+      
+      <div class="block">
+        
+
+<h4 class="title is-4 type-heading" id="message-com.andrioseptianto.marvelous.MarvelCharactersRequest">
+  <span>
+    <a href="#message-com.andrioseptianto.marvelous.MarvelCharactersRequest" title="com.andrioseptianto.marvelous.MarvelCharactersRequest">message MarvelCharactersRequest</a>
+  
+  </span>
+  
+</h4>
+
+<div class="block content">
+  <p>Request message for Marvel API</p>
+</div>
+
+<table class="table is-fullwidth is-hoverable is-bordered">
+  <thead>
+    <tr>
+      <th></th>
+      <th>Field</th>
+      <th>Type</th>
+      <th>Description</th>
+      
+    </tr>
+  </thead>
+  <tbody>
+    
+    <tr>
+      <td>1</td>
+      <td>
+        apikey
+      </td>
+      <td>
+        <code title="string">
+          
+          <span>string</span>
+        </code>
+      </td>
+      <td class="content"><p>Public API Key that will be used to authenticate a Marvel API request</p></td>
+      
+    </tr>
+    
+    <tr>
+      <td>2</td>
+      <td>
+        hash
+      </td>
+      <td>
+        <code title="string">
+          
+          <span>string</span>
+        </code>
+      </td>
+      <td class="content"><p>Hash value of the timestamp and the private key</p></td>
+      
+    </tr>
+    
+    <tr>
+      <td>3</td>
+      <td>
+        ts
+      </td>
+      <td>
+        <code title="string">
+          
+          <span>string</span>
+        </code>
+      </td>
+      <td class="content"><p>A timestamp value. Usually the current time</p></td>
+      
+    </tr>
+    
+    <tr>
+      <td>4</td>
+      <td>
+        name
+      </td>
+      <td>
+        <code title="string">
+          
+          <span>string</span>
+        </code>
+      </td>
+      <td class="content"><p>Return only characters matching the specified full character name (e.g. Spider-Man).</p></td>
+      
+    </tr>
+    
+    <tr>
+      <td>5</td>
+      <td>
+        nameStartsWith
+      </td>
+      <td>
+        <code title="string">
+          
+          <span>string</span>
+        </code>
+      </td>
+      <td class="content"><p>Return characters with names that begin with the specified string (e.g. Sp).</p></td>
+      
+    </tr>
+    
+    <tr>
+      <td>6</td>
+      <td>
+        modifiedSince
+      </td>
+      <td>
+        <code title="string">
+          
+          <span>string</span>
+        </code>
+      </td>
+      <td class="content"><p>Return only characters which have been modified since the specified date.</p></td>
+      
+    </tr>
+    
+    <tr>
+      <td>7</td>
+      <td>
+        comics
+      </td>
+      <td>
+        <code title="int32">
+          
+            repeated
+          
+          <span>int32</span>
+        </code>
+      </td>
+      <td class="content"><p>Return only characters which appear in the specified comics (accepts a comma-separated list of ids).</p></td>
+      
+    </tr>
+    
+    <tr>
+      <td>8</td>
+      <td>
+        series
+      </td>
+      <td>
+        <code title="int32">
+          
+            repeated
+          
+          <span>int32</span>
+        </code>
+      </td>
+      <td class="content"><p>Return only characters which appear the specified series (accepts a comma-separated list of ids).</p></td>
+      
+    </tr>
+    
+    <tr>
+      <td>9</td>
+      <td>
+        events
+      </td>
+      <td>
+        <code title="int32">
+          
+            repeated
+          
+          <span>int32</span>
+        </code>
+      </td>
+      <td class="content"><p>Return only characters which appear in the specified events (accepts a comma-separated list of ids).</p></td>
+      
+    </tr>
+    
+    <tr>
+      <td>10</td>
+      <td>
+        stories
+      </td>
+      <td>
+        <code title="int32">
+          
+            repeated
+          
+          <span>int32</span>
+        </code>
+      </td>
+      <td class="content"><p>Return only characters which appear in the specified stories (accepts a comma-separated list of ids).</p></td>
+      
+    </tr>
+    
+    <tr>
+      <td>11</td>
+      <td>
+        orderBy
+      </td>
+      <td>
+        <code title="string">
+          
+          <span>string</span>
+        </code>
+      </td>
+      <td class="content"><p>Order the result set by a field or fields. Add a "-" to the value sort in descending order.</p></td>
+      
+    </tr>
+    
+    <tr>
+      <td>12</td>
+      <td>
+        limit
+      </td>
+      <td>
+        <code title="int32">
+          
+          <span>int32</span>
+        </code>
+      </td>
+      <td class="content"><p>Limit the result set to the specified number of resources.</p></td>
+      
+    </tr>
+    
+    <tr>
+      <td>13</td>
+      <td>
+        offset
+      </td>
+      <td>
+        <code title="int32">
+          
+          <span>int32</span>
+        </code>
+      </td>
+      <td class="content"><p>Skip the specified number of resources in the result set.</p></td>
+      
+    </tr>
+    
+    
+  </tbody>
+</table>
+ 
+      </div>
+      
+    
+      
+      <div class="block">
+        
+
+<h4 class="title is-4 type-heading" id="message-com.andrioseptianto.marvelous.MarvelCharactersResponse">
+  <span>
+    <a href="#message-com.andrioseptianto.marvelous.MarvelCharactersResponse" title="com.andrioseptianto.marvelous.MarvelCharactersResponse">message MarvelCharactersResponse</a>
+  
+  </span>
+  
+</h4>
+
+<div class="block content">
+  
+</div>
+
+<table class="table is-fullwidth is-hoverable is-bordered">
+  <thead>
+    <tr>
+      <th></th>
+      <th>Field</th>
+      <th>Type</th>
+      <th>Description</th>
+      
+    </tr>
+  </thead>
+  <tbody>
+    
+    <tr>
+      <td>1</td>
+      <td>
+        code
+      </td>
+      <td>
+        <code title="int32">
+          
+          <span>int32</span>
+        </code>
+      </td>
+      <td class="content"><p>HTTP status code</p></td>
+      
+    </tr>
+    
+    <tr>
+      <td>2</td>
+      <td>
+        status
+      </td>
+      <td>
+        <code title="string">
+          
+          <span>string</span>
+        </code>
+      </td>
+      <td class="content"><p>A string description of the status of the response</p></td>
+      
+    </tr>
+    
+    <tr>
+      <td>3</td>
+      <td>
+        copyright
+      </td>
+      <td>
+        <code title="string">
+          
+          <span>string</span>
+        </code>
+      </td>
+      <td class="content"><p>The attribution text of the data returned</p></td>
+      
+    </tr>
+    
+    <tr>
+      <td>4</td>
+      <td>
+        attributionText
+      </td>
+      <td>
+        <code title="string">
+          
+          <span>string</span>
+        </code>
+      </td>
+      <td class="content"><p>The attribution HTML of the data returned</p></td>
+      
+    </tr>
+    
+    <tr>
+      <td>5</td>
+      <td>
+        attributionHTML
+      </td>
+      <td>
+        <code title="string">
+          
+          <span>string</span>
+        </code>
+      </td>
+      <td class="content"><p>The attribution HTML of the data returned</p></td>
+      
+    </tr>
+    
+    <tr>
+      <td>6</td>
+      <td>
+        data
+      </td>
+      <td>
+        <code title="com.andrioseptianto.marvelous.MarvelCharactersResponse.Data">
+          
+          <a href="com.andrioseptianto.marvelous.html#message-com.andrioseptianto.marvelous.MarvelCharactersResponse.Data"><span title="com.andrioseptianto.marvelous.MarvelCharactersResponse.Data">com.andrioseptianto.marvelous.MarvelCharactersResponse.Data</span>
+    </a>
+        </code>
+      </td>
+      <td class="content"><p>The data returned by the request</p></td>
+      
+    </tr>
+    
+    <tr>
+      <td>7</td>
+      <td>
+        etag
+      </td>
+      <td>
+        <code title="string">
+          
+          <span>string</span>
+        </code>
+      </td>
+      <td class="content"><p>A unique identifier hash of the content returned</p></td>
+      
+    </tr>
+    
+    
+  </tbody>
+</table>
+ 
+      </div>
+      
+    
+      
+      <div class="block">
+        
+
+<h4 class="title is-4 type-heading" id="message-com.andrioseptianto.marvelous.MarvelCharactersResponse.Data.Result">
+  <span>
+    <a href="#message-com.andrioseptianto.marvelous.MarvelCharactersResponse.Data.Result" title="com.andrioseptianto.marvelous.MarvelCharactersResponse.Data.Result">message Result</a>
+  
+    <span style="font-size: 0.7em; font-weight: normal">(Nested in <a href="com.andrioseptianto.marvelous.html#message-com.andrioseptianto.marvelous.MarvelCharactersResponse.Data"><span title="com.andrioseptianto.marvelous.MarvelCharactersResponse.Data">com.andrioseptianto.marvelous.MarvelCharactersResponse.Data</span>
+    </a>)</span>
+  
+  </span>
+  
+</h4>
+
+<div class="block content">
+  
+</div>
+
+<table class="table is-fullwidth is-hoverable is-bordered">
+  <thead>
+    <tr>
+      <th></th>
+      <th>Field</th>
+      <th>Type</th>
+      <th>Description</th>
+      
+    </tr>
+  </thead>
+  <tbody>
+    
+    <tr>
+      <td>1</td>
+      <td>
+        id
+      </td>
+      <td>
+        <code title="int32">
+          
+          <span>int32</span>
+        </code>
+      </td>
+      <td class="content"><p>The unique ID of the character resource</p></td>
+      
+    </tr>
+    
+    <tr>
+      <td>2</td>
+      <td>
+        name
+      </td>
+      <td>
+        <code title="string">
+          
+          <span>string</span>
+        </code>
+      </td>
+      <td class="content"><p>The name of the character</p></td>
+      
+    </tr>
+    
+    <tr>
+      <td>3</td>
+      <td>
+        description
+      </td>
+      <td>
+        <code title="string">
+          
+          <span>string</span>
+        </code>
+      </td>
+      <td class="content"><p>A short bio or description of the character</p></td>
+      
+    </tr>
+    
+    <tr>
+      <td>4</td>
+      <td>
+        modified
+      </td>
+      <td>
+        <code title="string">
+          
+          <span>string</span>
+        </code>
+      </td>
+      <td class="content"><p>The date the resource was most recently modified</p></td>
+      
+    </tr>
+    
+    <tr>
+      <td>5</td>
+      <td>
+        resourceURI
+      </td>
+      <td>
+        <code title="string">
+          
+          <span>string</span>
+        </code>
+      </td>
+      <td class="content"><p>The canonical URL identifier for this resource</p></td>
+      
+    </tr>
+    
+    <tr>
+      <td>6</td>
+      <td>
+        urls
+      </td>
+      <td>
+        <code title="com.andrioseptianto.marvelous.MarvelCharactersResponse.Data.Result.URL">
+          
+            repeated
+          
+          <a href="com.andrioseptianto.marvelous.html#message-com.andrioseptianto.marvelous.MarvelCharactersResponse.Data.Result.URL"><span title="com.andrioseptianto.marvelous.MarvelCharactersResponse.Data.Result.URL">com.andrioseptianto.marvelous.MarvelCharactersResponse.Data.Result.URL</span>
+    </a>
+        </code>
+      </td>
+      <td class="content"><p>A set of public web site URLs for the resource</p></td>
+      
+    </tr>
+    
+    <tr>
+      <td>7</td>
+      <td>
+        thumbnail
+      </td>
+      <td>
+        <code title="com.andrioseptianto.marvelous.MarvelCharactersResponse.Data.Result.Thumbnail">
+          
+          <a href="com.andrioseptianto.marvelous.html#message-com.andrioseptianto.marvelous.MarvelCharactersResponse.Data.Result.Thumbnail"><span title="com.andrioseptianto.marvelous.MarvelCharactersResponse.Data.Result.Thumbnail">com.andrioseptianto.marvelous.MarvelCharactersResponse.Data.Result.Thumbnail</span>
+    </a>
+        </code>
+      </td>
+      <td class="content"><p>The representative image for this character</p></td>
+      
+    </tr>
+    
+    <tr>
+      <td>8</td>
+      <td>
+        comics
+      </td>
+      <td>
+        <code title="com.andrioseptianto.marvelous.MarvelCharactersResponse.Data.Result.Comics">
+          
+          <a href="com.andrioseptianto.marvelous.html#message-com.andrioseptianto.marvelous.MarvelCharactersResponse.Data.Result.Comics"><span title="com.andrioseptianto.marvelous.MarvelCharactersResponse.Data.Result.Comics">com.andrioseptianto.marvelous.MarvelCharactersResponse.Data.Result.Comics</span>
+    </a>
+        </code>
+      </td>
+      <td class="content"><p>A resource list containing comics which feature this character</p></td>
+      
+    </tr>
+    
+    <tr>
+      <td>9</td>
+      <td>
+        stories
+      </td>
+      <td>
+        <code title="com.andrioseptianto.marvelous.MarvelCharactersResponse.Data.Result.Stories">
+          
+          <a href="com.andrioseptianto.marvelous.html#message-com.andrioseptianto.marvelous.MarvelCharactersResponse.Data.Result.Stories"><span title="com.andrioseptianto.marvelous.MarvelCharactersResponse.Data.Result.Stories">com.andrioseptianto.marvelous.MarvelCharactersResponse.Data.Result.Stories</span>
+    </a>
+        </code>
+      </td>
+      <td class="content"><p>A resource list of stories in which this character appears</p></td>
+      
+    </tr>
+    
+    <tr>
+      <td>10</td>
+      <td>
+        events
+      </td>
+      <td>
+        <code title="com.andrioseptianto.marvelous.MarvelCharactersResponse.Data.Result.Events">
+          
+          <a href="com.andrioseptianto.marvelous.html#message-com.andrioseptianto.marvelous.MarvelCharactersResponse.Data.Result.Events"><span title="com.andrioseptianto.marvelous.MarvelCharactersResponse.Data.Result.Events">com.andrioseptianto.marvelous.MarvelCharactersResponse.Data.Result.Events</span>
+    </a>
+        </code>
+      </td>
+      <td class="content"><p>A resource list of events in which this character appears</p></td>
+      
+    </tr>
+    
+    <tr>
+      <td>11</td>
+      <td>
+        series
+      </td>
+      <td>
+        <code title="com.andrioseptianto.marvelous.MarvelCharactersResponse.Data.Result.Series">
+          
+          <a href="com.andrioseptianto.marvelous.html#message-com.andrioseptianto.marvelous.MarvelCharactersResponse.Data.Result.Series"><span title="com.andrioseptianto.marvelous.MarvelCharactersResponse.Data.Result.Series">com.andrioseptianto.marvelous.MarvelCharactersResponse.Data.Result.Series</span>
+    </a>
+        </code>
+      </td>
+      <td class="content"><p>A resource list of series in which this character appears</p></td>
+      
+    </tr>
+    
+    
+  </tbody>
+</table>
+ 
+      </div>
+      
+    
+      
+      <div class="block">
+        
+
+<h4 class="title is-4 type-heading" id="message-com.andrioseptianto.marvelous.MarvelCharactersResponse.Data.Result.Series">
+  <span>
+    <a href="#message-com.andrioseptianto.marvelous.MarvelCharactersResponse.Data.Result.Series" title="com.andrioseptianto.marvelous.MarvelCharactersResponse.Data.Result.Series">message Series</a>
+  
+    <span style="font-size: 0.7em; font-weight: normal">(Nested in <a href="com.andrioseptianto.marvelous.html#message-com.andrioseptianto.marvelous.MarvelCharactersResponse.Data.Result"><span title="com.andrioseptianto.marvelous.MarvelCharactersResponse.Data.Result">com.andrioseptianto.marvelous.MarvelCharactersResponse.Data.Result</span>
+    </a>)</span>
+  
+  </span>
+  
+</h4>
+
+<div class="block content">
+  
+</div>
+
+<table class="table is-fullwidth is-hoverable is-bordered">
+  <thead>
+    <tr>
+      <th></th>
+      <th>Field</th>
+      <th>Type</th>
+      <th>Description</th>
+      
+    </tr>
+  </thead>
+  <tbody>
+    
+    <tr>
+      <td>1</td>
+      <td>
+        available
+      </td>
+      <td>
+        <code title="int32">
+          
+          <span>int32</span>
+        </code>
+      </td>
+      <td class="content"><p>The number of available series in this list</p></td>
+      
+    </tr>
+    
+    <tr>
+      <td>2</td>
+      <td>
+        returned
+      </td>
+      <td>
+        <code title="int32">
+          
+          <span>int32</span>
+        </code>
+      </td>
+      <td class="content"><p>The number of returned series in this collection</p></td>
+      
+    </tr>
+    
+    <tr>
+      <td>3</td>
+      <td>
+        collectionURI
+      </td>
+      <td>
+        <code title="string">
+          
+          <span>string</span>
+        </code>
+      </td>
+      <td class="content"><p>The path to the full list of series in this collection</p></td>
+      
+    </tr>
+    
+    <tr>
+      <td>4</td>
+      <td>
+        items
+      </td>
+      <td>
+        <code title="com.andrioseptianto.marvelous.MarvelCharactersResponse.Data.Result.Series.Item">
+          
+            repeated
+          
+          <a href="com.andrioseptianto.marvelous.html#message-com.andrioseptianto.marvelous.MarvelCharactersResponse.Data.Result.Series.Item"><span title="com.andrioseptianto.marvelous.MarvelCharactersResponse.Data.Result.Series.Item">com.andrioseptianto.marvelous.MarvelCharactersResponse.Data.Result.Series.Item</span>
+    </a>
+        </code>
+      </td>
+      <td class="content"><p>The list of returned series</p></td>
+      
+    </tr>
+    
+    
+  </tbody>
+</table>
+ 
+      </div>
+      
+    
+      
+      <div class="block">
+        
+
+<h4 class="title is-4 type-heading" id="message-com.andrioseptianto.marvelous.MarvelCharactersResponse.Data.Result.Stories">
+  <span>
+    <a href="#message-com.andrioseptianto.marvelous.MarvelCharactersResponse.Data.Result.Stories" title="com.andrioseptianto.marvelous.MarvelCharactersResponse.Data.Result.Stories">message Stories</a>
+  
+    <span style="font-size: 0.7em; font-weight: normal">(Nested in <a href="com.andrioseptianto.marvelous.html#message-com.andrioseptianto.marvelous.MarvelCharactersResponse.Data.Result"><span title="com.andrioseptianto.marvelous.MarvelCharactersResponse.Data.Result">com.andrioseptianto.marvelous.MarvelCharactersResponse.Data.Result</span>
+    </a>)</span>
+  
+  </span>
+  
+</h4>
+
+<div class="block content">
+  
+</div>
+
+<table class="table is-fullwidth is-hoverable is-bordered">
+  <thead>
+    <tr>
+      <th></th>
+      <th>Field</th>
+      <th>Type</th>
+      <th>Description</th>
+      
+    </tr>
+  </thead>
+  <tbody>
+    
+    <tr>
+      <td>1</td>
+      <td>
+        available
+      </td>
+      <td>
+        <code title="int32">
+          
+          <span>int32</span>
+        </code>
+      </td>
+      <td class="content"><p>The number of available stories in this list</p></td>
+      
+    </tr>
+    
+    <tr>
+      <td>2</td>
+      <td>
+        returned
+      </td>
+      <td>
+        <code title="int32">
+          
+          <span>int32</span>
+        </code>
+      </td>
+      <td class="content"><p>The number of returned stories in this collection</p></td>
+      
+    </tr>
+    
+    <tr>
+      <td>3</td>
+      <td>
+        collectionURI
+      </td>
+      <td>
+        <code title="string">
+          
+          <span>string</span>
+        </code>
+      </td>
+      <td class="content"><p>The path to the full list of stories in this collection</p></td>
+      
+    </tr>
+    
+    <tr>
+      <td>4</td>
+      <td>
+        items
+      </td>
+      <td>
+        <code title="com.andrioseptianto.marvelous.MarvelCharactersResponse.Data.Result.Stories.Item">
+          
+            repeated
+          
+          <a href="com.andrioseptianto.marvelous.html#message-com.andrioseptianto.marvelous.MarvelCharactersResponse.Data.Result.Stories.Item"><span title="com.andrioseptianto.marvelous.MarvelCharactersResponse.Data.Result.Stories.Item">com.andrioseptianto.marvelous.MarvelCharactersResponse.Data.Result.Stories.Item</span>
+    </a>
+        </code>
+      </td>
+      <td class="content"><p>The list of returned stories</p></td>
+      
+    </tr>
+    
+    
+  </tbody>
+</table>
+ 
+      </div>
+      
+    
+      
+      <div class="block">
+        
+
+<h4 class="title is-4 type-heading" id="message-com.andrioseptianto.marvelous.MarvelCharactersResponse.Data.Result.Thumbnail">
+  <span>
+    <a href="#message-com.andrioseptianto.marvelous.MarvelCharactersResponse.Data.Result.Thumbnail" title="com.andrioseptianto.marvelous.MarvelCharactersResponse.Data.Result.Thumbnail">message Thumbnail</a>
+  
+    <span style="font-size: 0.7em; font-weight: normal">(Nested in <a href="com.andrioseptianto.marvelous.html#message-com.andrioseptianto.marvelous.MarvelCharactersResponse.Data.Result"><span title="com.andrioseptianto.marvelous.MarvelCharactersResponse.Data.Result">com.andrioseptianto.marvelous.MarvelCharactersResponse.Data.Result</span>
+    </a>)</span>
+  
+  </span>
+  
+</h4>
+
+<div class="block content">
+  
+</div>
+
+<table class="table is-fullwidth is-hoverable is-bordered">
+  <thead>
+    <tr>
+      <th></th>
+      <th>Field</th>
+      <th>Type</th>
+      <th>Description</th>
+      
+    </tr>
+  </thead>
+  <tbody>
+    
+    <tr>
+      <td>1</td>
+      <td>
+        path
+      </td>
+      <td>
+        <code title="string">
+          
+          <span>string</span>
+        </code>
+      </td>
+      <td class="content"><p>The path to the image</p></td>
+      
+    </tr>
+    
+    <tr>
+      <td>2</td>
+      <td>
+        extension
+      </td>
+      <td>
+        <code title="string">
+          
+          <span>string</span>
+        </code>
+      </td>
+      <td class="content"><p>The file extension for the image</p></td>
+      
+    </tr>
+    
+    
+  </tbody>
+</table>
+ 
+      </div>
+      
+    
+      
+      <div class="block">
+        
+
+<h4 class="title is-4 type-heading" id="message-com.andrioseptianto.marvelous.MarvelCharactersResponse.Data.Result.URL">
+  <span>
+    <a href="#message-com.andrioseptianto.marvelous.MarvelCharactersResponse.Data.Result.URL" title="com.andrioseptianto.marvelous.MarvelCharactersResponse.Data.Result.URL">message URL</a>
+  
+    <span style="font-size: 0.7em; font-weight: normal">(Nested in <a href="com.andrioseptianto.marvelous.html#message-com.andrioseptianto.marvelous.MarvelCharactersResponse.Data.Result"><span title="com.andrioseptianto.marvelous.MarvelCharactersResponse.Data.Result">com.andrioseptianto.marvelous.MarvelCharactersResponse.Data.Result</span>
+    </a>)</span>
+  
+  </span>
+  
+</h4>
+
+<div class="block content">
+  
+</div>
+
+<table class="table is-fullwidth is-hoverable is-bordered">
+  <thead>
+    <tr>
+      <th></th>
+      <th>Field</th>
+      <th>Type</th>
+      <th>Description</th>
+      
+    </tr>
+  </thead>
+  <tbody>
+    
+    <tr>
+      <td>1</td>
+      <td>
+        type
+      </td>
+      <td>
+        <code title="string">
+          
+          <span>string</span>
+        </code>
+      </td>
+      <td class="content"><p>A text identifier for the URL</p></td>
+      
+    </tr>
+    
+    <tr>
+      <td>2</td>
+      <td>
+        url
+      </td>
+      <td>
+        <code title="string">
+          
+          <span>string</span>
+        </code>
+      </td>
+      <td class="content"><p>A full URL (including scheme, domain, and path)</p></td>
+      
+    </tr>
+    
+    
+  </tbody>
+</table>
+ 
+      </div>
+      
+    
+
+  
+
+  
+
+</div>
+
+    <footer class="footer">
+      <div class="content has-text-centered">
+        
+        <p>Built with <strong><a href="https://github.com/markvincze/sabledocs" target="_blank">sabledocs</a></strong>.</p>
+      </div>
+    </footer>
+  </body>
+</html>
