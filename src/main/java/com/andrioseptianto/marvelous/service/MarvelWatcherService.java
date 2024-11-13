@@ -75,7 +75,7 @@ public class MarvelWatcherService extends TextWebSocketHandler {
             }
 
             UriComponentsBuilder uriBuilder = MarvelUriUtil.buildUri(marvelApiConfig.getBaseUrl(), request, hash, ts, apikey);
-            String url = uriBuilder.toUriString();
+            String url = uriBuilder.build(false).toUriString();
 
             HttpHeaders headers = new HttpHeaders();
             headers.set("If-None-Match", etag);
@@ -86,8 +86,6 @@ public class MarvelWatcherService extends TextWebSocketHandler {
 
             try {
                 ResponseEntity<MarvelApiResponse> responseEntity = restTemplate.exchange(url, HttpMethod.GET, entity, MarvelApiResponse.class);
-                // log response
-                logger.info("Response: {}", responseEntity);
 
                 if (responseEntity.getStatusCode().value() == 200) {
                     MarvelApiResponse apiResponse = responseEntity.getBody();
