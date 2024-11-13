@@ -67,9 +67,10 @@ public class MarvelServiceImpl extends MarvelServiceGrpc.MarvelServiceImplBase {
 
 
         UriComponentsBuilder uriBuilder = MarvelUriUtil.buildUri(marvelApiConfig.getBaseUrl(), request, hash, ts, apikey);
-        String url = uriBuilder.toUriString();
+        String url = uriBuilder.build(false).toUriString();
 
         try {
+            logger.info("Calling Marvel API URL: {}", url);
             MarvelApiResponse apiResponse = restTemplate.getForObject(url, MarvelApiResponse.class);
 
             // error handling when apiResponse is null
@@ -82,7 +83,6 @@ public class MarvelServiceImpl extends MarvelServiceGrpc.MarvelServiceImplBase {
                 return;
             }
 
-            logger.info("Received response from Marvel API: {}", apiResponse);
 
             MarvelCharactersResponse response = MarvelCharactersResponse.newBuilder()
                     .setCode(apiResponse.getCode())
