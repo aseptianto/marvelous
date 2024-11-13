@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Protobuf module documentation</title>
+    <link rel="stylesheet" href="static/mystyles.css" />
+    <script src="static/fontawesome.js"></script>
+    <script src="static/lunr.js"></script>
+    <script src="static/theme.js"></script>
+  </head>
+  <body>
+    <div class="container">
+      <nav class="level pt-6 mb-5 pb-2 bottom-border">
+        <div class="level-left">
+          <p class="level-item has-text-centered is-size-3 has-text-weight-medium">
+            <a class="link is-info" href="index.html">
+              Protobuf module documentation
+            </a>
+          </p>
+        </div>
+
+        <div class="level-right">
+          
+          <form action="search.html" class="mr-2 has-text-centered">
+            <input type="text" name="query" class="input mr-3 navbar-search-query-input" placeholder="Search">
+            <input type="submit" class="button is-primary mr-5" value="Search" />
+          </form>
+          
+
+          <p class="level-item has-text-centered is-size-5">
+            <a href="" class="link is-info mr-5" target="_blank">
+              
+              <span>Source</span>
+            </a>
+
+            <button class="theme-toggle" id="theme-toggle" title="Toggles light & dark" aria-label="auto" aria-live="polite" type="button">
+              <svg class="sun-and-moon" aria-hidden="true" width="24" height="24" viewBox="0 0 24 24">
+                <mask class="moon" id="moon-mask">
+                  <rect x="0" y="0" width="100%" height="100%" fill="white" />
+                  <circle cx="24" cy="10" r="6" fill="black" />
+                </mask>
+                <circle class="sun" cx="12" cy="12" r="6" mask="url(#moon-mask)" fill="currentColor" />
+                <g class="sun-beams" stroke="currentColor">
+                  <line x1="12" y1="1" x2="12" y2="3" />
+                  <line x1="12" y1="21" x2="12" y2="23" />
+                  <line x1="4.22" y1="4.22" x2="5.64" y2="5.64" />
+                  <line x1="18.36" y1="18.36" x2="19.78" y2="19.78" />
+                  <line x1="1" y1="12" x2="3" y2="12" />
+                  <line x1="21" y1="12" x2="23" y2="12" />
+                  <line x1="4.22" y1="19.78" x2="5.64" y2="18.36" />
+                  <line x1="18.36" y1="5.64" x2="19.78" y2="4.22" />
+                </g>
+              </svg>
+            </button>
+          </p>
+        </div>
+      </nav>
+    </div>
+
+    <div id="main-content" class="container mb-6">
+<script>
+    const searchDocuments =  {"com.andrioseptianto.marvelous": {"package": "com.andrioseptianto.marvelous", "url": "com.andrioseptianto.marvelous.html", "content": "com.andrioseptianto.marvelous\n\ncom\nandrioseptianto\nmarvelous\nMarvelService\n\nGetCharacters\nGet a list of characters\ncom\nandrioseptianto\nmarvelous\nMarvelCharactersRequest\ncom\nandrioseptianto\nmarvelous\nMarvelCharactersResponse\ncom\nandrioseptianto\nmarvelous\nMarvelCharactersResponse\nData\nResult\nComics\navailable\nThe number of available comics in this list\nreturned\nThe number of returned comics in this collection\ncollectionURI\nThe path to the full list of comics in this collection\nitems\nThe list of returned comics\ncom\nandrioseptianto\nmarvelous\nMarvelCharactersResponse\nData\noffset\nThe requested offset (number of skipped results) of the call\nlimit\nThe requested result limit\ntotal\nThe total number of resources available given the current filter set\ncount\nThe total number of results returned by this call\nresults\nThe list of characters returned by the request\ncom\nandrioseptianto\nmarvelous\nMarvelCharactersResponse\nData\nResult\nEvents\navailable\nThe number of available events in this list\nreturned\nThe number of returned events in this collection\ncollectionURI\nThe path to the full list of events in this collection\nitems\nThe list of returned events\ncom\nandrioseptianto\nmarvelous\nMarvelCharactersResponse\nData\nResult\nComics\nItem\nresourceURI\nThe path to the individual comic resource\nname\nThe canonical name of the comic\ncom\nandrioseptianto\nmarvelous\nMarvelCharactersResponse\nData\nResult\nStories\nItem\nresourceURI\nThe path to the individual story resource\nname\nThe canonical name of the story\ntype\nThe type of the story (interior or cover)\ncom\nandrioseptianto\nmarvelous\nMarvelCharactersResponse\nData\nResult\nEvents\nItem\nresourceURI\nThe path to the individual event resource\nname\nThe canonical name of the event\ncom\nandrioseptianto\nmarvelous\nMarvelCharactersResponse\nData\nResult\nSeries\nItem\nresourceURI\nThe path to the individual series resource\nname\nThe canonical name of the series\ncom\nandrioseptianto\nmarvelous\nMarvelApiError\ncode\nHTTP status code\nstatus\nA string description of the error\ncom\nandrioseptianto\nmarvelous\nMarvelCharactersRequest\napikey\nPublic API Key that will be used to authenticate a Marvel API request\nhash\nHash value of the timestamp and the private key\nts\nA timestamp value. Usually the current time\nname\nReturn only characters matching the specified full character name (e.g. Spider-Man).\nnameStartsWith\nReturn characters with names that begin with the specified string (e.g. Sp).\nmodifiedSince\nReturn only characters which have been modified since the specified date.\ncomics\nReturn only characters which appear in the specified comics (accepts a comma-separated list of ids).\nseries\nReturn only characters which appear the specified series (accepts a comma-separated list of ids).\nevents\nReturn only characters which appear in the specified events (accepts a comma-separated list of ids).\nstories\nReturn only characters which appear in the specified stories (accepts a comma-separated list of ids).\norderBy\nOrder the result set by a field or fields. Add a \"-\" to the value sort in descending order.\nlimit\nLimit the result set to the specified number of resources.\noffset\nSkip the specified number of resources in the result set.\ncom\nandrioseptianto\nmarvelous\nMarvelCharactersResponse\ncode\nHTTP status code\nstatus\nA string description of the status of the response\ncopyright\nThe attribution text of the data returned\nattributionText\nThe attribution HTML of the data returned\nattributionHTML\nThe attribution HTML of the data returned\ndata\nThe data returned by the request\netag\nA unique identifier hash of the content returned\ncom\nandrioseptianto\nmarvelous\nMarvelCharactersResponse\nData\nResult\nid\nThe unique ID of the character resource\nname\nThe name of the character\ndescription\nA short bio or description of the character\nmodified\nThe date the resource was most recently modified\nresourceURI\nThe canonical URL identifier for this resource\nurls\nA set of public web site URLs for the resource\nthumbnail\nThe representative image for this character\ncomics\nA resource list containing comics which feature this character\nstories\nA resource list of stories in which this character appears\nevents\nA resource list of events in which this character appears\nseries\nA resource list of series in which this character appears\ncom\nandrioseptianto\nmarvelous\nMarvelCharactersResponse\nData\nResult\nSeries\navailable\nThe number of available series in this list\nreturned\nThe number of returned series in this collection\ncollectionURI\nThe path to the full list of series in this collection\nitems\nThe list of returned series\ncom\nandrioseptianto\nmarvelous\nMarvelCharactersResponse\nData\nResult\nStories\navailable\nThe number of available stories in this list\nreturned\nThe number of returned stories in this collection\ncollectionURI\nThe path to the full list of stories in this collection\nitems\nThe list of returned stories\ncom\nandrioseptianto\nmarvelous\nMarvelCharactersResponse\nData\nResult\nThumbnail\npath\nThe path to the image\nextension\nThe file extension for the image\ncom\nandrioseptianto\nmarvelous\nMarvelCharactersResponse\nData\nResult\nURL\ntype\nA text identifier for the URL\nurl\nA full URL (including scheme, domain, and path)\n"}};
+    const searchIndex = {"version": "2.3.9", "fields": ["content", "url"], "fieldVectors": [["content/com.andrioseptianto.marvelous", [0, 0.288, 1, 0.593, 2, 0.593, 3, 0.595, 4, 0.288, 5, 0.288, 6, 0.6, 7, 0.593, 8, 0.396, 9, 0.583, 10, 0.591, 11, 0.593, 12, 0.575, 13, 0.558, 14, 0.579, 15, 0.605, 16, 0.55, 17, 0.487, 18, 0.571, 19, 0.527, 20, 0.55, 21, 0.452, 22, 0.51, 23, 0.396, 24, 0.396, 25, 0.487, 26, 0.452, 27, 0.586, 28, 0.288, 29, 0.396, 30, 0.288, 31, 0.51, 32, 0.288, 33, 0.575, 34, 0.51, 35, 0.487, 36, 0.579, 37, 0.51, 38, 0.579, 39, 0.452, 40, 0.288, 41, 0.288, 42, 0.575, 43, 0.288, 44, 0.487, 45, 0.396, 46, 0.51, 47, 0.452, 48, 0.487, 49, 0.288, 50, 0.288, 51, 0.396, 52, 0.396, 53, 0.396, 54, 0.288, 55, 0.288, 56, 0.452, 57, 0.452, 58, 0.396, 59, 0.288, 60, 0.288, 61, 0.288, 62, 0.288, 63, 0.288, 64, 0.558, 65, 0.396, 66, 0.288, 67, 0.288, 68, 0.288, 69, 0.288, 70, 0.288, 71, 0.288, 72, 0.452, 73, 0.396, 74, 0.54, 75, 0.487, 76, 0.487, 77, 0.487, 78, 0.527, 79, 0.288, 80, 0.396, 81, 0.396, 82, 0.288, 83, 0.396, 84, 0.288, 85, 0.288, 86, 0.288, 87, 0.288, 88, 0.452, 89, 0.396, 90, 0.288, 91, 0.396, 92, 0.288, 93, 0.288, 94, 0.396, 95, 0.452, 96, 0.288, 97, 0.288, 98, 0.288, 99, 0.288, 100, 0.54, 101, 0.288, 102, 0.288, 103, 0.396, 104, 0.288, 105, 0.452, 106, 0.288, 107, 0.288, 108, 0.396, 109, 0.288, 110, 0.288, 111, 0.288, 112, 0.288]], ["url/com.andrioseptianto.marvelous", [113, 0.288]]], "invertedIndex": [["\"", {"content": {"com.andrioseptianto.marvelous": {}}, "url": {}, "_index": 83}], ["(e.g.", {"content": {"com.andrioseptianto.marvelous": {}}, "url": {}, "_index": 65}], ["accept", {"content": {"com.andrioseptianto.marvelous": {}}, "url": {}, "_index": 75}], ["add", {"content": {"com.andrioseptianto.marvelous": {}}, "url": {}, "_index": 82}], ["andrioseptianto", {"content": {"com.andrioseptianto.marvelous": {}}, "url": {}, "_index": 2}], ["api", {"content": {"com.andrioseptianto.marvelous": {}}, "url": {}, "_index": 52}], ["apikei", {"content": {"com.andrioseptianto.marvelous": {}}, "url": {}, "_index": 50}], ["appear", {"content": {"com.andrioseptianto.marvelous": {}}, "url": {}, "_index": 74}], ["attribut", {"content": {"com.andrioseptianto.marvelous": {}}, "url": {}, "_index": 88}], ["attributionhtml", {"content": {"com.andrioseptianto.marvelous": {}}, "url": {}, "_index": 92}], ["attributiontext", {"content": {"com.andrioseptianto.marvelous": {}}, "url": {}, "_index": 90}], ["authent", {"content": {"com.andrioseptianto.marvelous": {}}, "url": {}, "_index": 55}], ["avail", {"content": {"com.andrioseptianto.marvelous": {}}, "url": {}, "_index": 13}], ["begin", {"content": {"com.andrioseptianto.marvelous": {}}, "url": {}, "_index": 69}], ["bio", {"content": {"com.andrioseptianto.marvelous": {}}, "url": {}, "_index": 98}], ["call", {"content": {"com.andrioseptianto.marvelous": {}}, "url": {}, "_index": 24}], ["canon", {"content": {"com.andrioseptianto.marvelous": {}}, "url": {}, "_index": 37}], ["charact", {"content": {"com.andrioseptianto.marvelous": {}}, "url": {}, "_index": 7}], ["code", {"content": {"com.andrioseptianto.marvelous": {}}, "url": {}, "_index": 44}], ["collect", {"content": {"com.andrioseptianto.marvelous": {}}, "url": {}, "_index": 16}], ["collectionuri", {"content": {"com.andrioseptianto.marvelous": {}}, "url": {}, "_index": 17}], ["com", {"content": {"com.andrioseptianto.marvelous": {}}, "url": {}, "_index": 1}], ["com.andrioseptianto.marvel", {"content": {"com.andrioseptianto.marvelous": {}}, "url": {}, "_index": 0}], ["com.andrioseptianto.marvelous.html", {"content": {}, "url": {"com.andrioseptianto.marvelous": {}}, "_index": 113}], ["comic", {"content": {"com.andrioseptianto.marvelous": {}}, "url": {}, "_index": 12}], ["comma", {"content": {"com.andrioseptianto.marvelous": {}}, "url": {}, "_index": 76}], ["contain", {"content": {"com.andrioseptianto.marvelous": {}}, "url": {}, "_index": 106}], ["content", {"content": {"com.andrioseptianto.marvelous": {}}, "url": {}, "_index": 96}], ["copyright", {"content": {"com.andrioseptianto.marvelous": {}}, "url": {}, "_index": 87}], ["count", {"content": {"com.andrioseptianto.marvelous": {}}, "url": {}, "_index": 32}], ["cover", {"content": {"com.andrioseptianto.marvelous": {}}, "url": {}, "_index": 41}], ["current", {"content": {"com.andrioseptianto.marvelous": {}}, "url": {}, "_index": 29}], ["data", {"content": {"com.andrioseptianto.marvelous": {}}, "url": {}, "_index": 10}], ["date", {"content": {"com.andrioseptianto.marvelous": {}}, "url": {}, "_index": 73}], ["descend", {"content": {"com.andrioseptianto.marvelous": {}}, "url": {}, "_index": 85}], ["descript", {"content": {"com.andrioseptianto.marvelous": {}}, "url": {}, "_index": 48}], ["domain", {"content": {"com.andrioseptianto.marvelous": {}}, "url": {}, "_index": 112}], ["error", {"content": {"com.andrioseptianto.marvelous": {}}, "url": {}, "_index": 49}], ["etag", {"content": {"com.andrioseptianto.marvelous": {}}, "url": {}, "_index": 93}], ["event", {"content": {"com.andrioseptianto.marvelous": {}}, "url": {}, "_index": 33}], ["extens", {"content": {"com.andrioseptianto.marvelous": {}}, "url": {}, "_index": 108}], ["featur", {"content": {"com.andrioseptianto.marvelous": {}}, "url": {}, "_index": 107}], ["field", {"content": {"com.andrioseptianto.marvelous": {}}, "url": {}, "_index": 81}], ["file", {"content": {"com.andrioseptianto.marvelous": {}}, "url": {}, "_index": 109}], ["filter", {"content": {"com.andrioseptianto.marvelous": {}}, "url": {}, "_index": 30}], ["full", {"content": {"com.andrioseptianto.marvelous": {}}, "url": {}, "_index": 19}], ["getcharact", {"content": {"com.andrioseptianto.marvelous": {}}, "url": {}, "_index": 5}], ["given", {"content": {"com.andrioseptianto.marvelous": {}}, "url": {}, "_index": 28}], ["hash", {"content": {"com.andrioseptianto.marvelous": {}}, "url": {}, "_index": 56}], ["html", {"content": {"com.andrioseptianto.marvelous": {}}, "url": {}, "_index": 91}], ["http", {"content": {"com.andrioseptianto.marvelous": {}}, "url": {}, "_index": 45}], ["id", {"content": {"com.andrioseptianto.marvelous": {}}, "url": {}, "_index": 78}], ["identifi", {"content": {"com.andrioseptianto.marvelous": {}}, "url": {}, "_index": 95}], ["imag", {"content": {"com.andrioseptianto.marvelous": {}}, "url": {}, "_index": 105}], ["includ", {"content": {"com.andrioseptianto.marvelous": {}}, "url": {}, "_index": 110}], ["individu", {"content": {"com.andrioseptianto.marvelous": {}}, "url": {}, "_index": 35}], ["interior", {"content": {"com.andrioseptianto.marvelous": {}}, "url": {}, "_index": 40}], ["item", {"content": {"com.andrioseptianto.marvelous": {}}, "url": {}, "_index": 20}], ["kei", {"content": {"com.andrioseptianto.marvelous": {}}, "url": {}, "_index": 53}], ["limit", {"content": {"com.andrioseptianto.marvelous": {}}, "url": {}, "_index": 25}], ["list", {"content": {"com.andrioseptianto.marvelous": {}}, "url": {}, "_index": 6}], ["man", {"content": {"com.andrioseptianto.marvelous": {}}, "url": {}, "_index": 67}], ["marvel", {"content": {"com.andrioseptianto.marvelous": {}}, "url": {}, "_index": 3}], ["marvelapierror", {"content": {"com.andrioseptianto.marvelous": {}}, "url": {}, "_index": 43}], ["marvelcharactersrequest", {"content": {"com.andrioseptianto.marvelous": {}}, "url": {}, "_index": 8}], ["marvelcharactersrespons", {"content": {"com.andrioseptianto.marvelous": {}}, "url": {}, "_index": 9}], ["marvelservic", {"content": {"com.andrioseptianto.marvelous": {}}, "url": {}, "_index": 4}], ["match", {"content": {"com.andrioseptianto.marvelous": {}}, "url": {}, "_index": 63}], ["modifi", {"content": {"com.andrioseptianto.marvelous": {}}, "url": {}, "_index": 72}], ["modifiedsinc", {"content": {"com.andrioseptianto.marvelous": {}}, "url": {}, "_index": 71}], ["name", {"content": {"com.andrioseptianto.marvelous": {}}, "url": {}, "_index": 36}], ["namestartswith", {"content": {"com.andrioseptianto.marvelous": {}}, "url": {}, "_index": 68}], ["number", {"content": {"com.andrioseptianto.marvelous": {}}, "url": {}, "_index": 14}], ["offset", {"content": {"com.andrioseptianto.marvelous": {}}, "url": {}, "_index": 21}], ["order", {"content": {"com.andrioseptianto.marvelous": {}}, "url": {}, "_index": 80}], ["orderbi", {"content": {"com.andrioseptianto.marvelous": {}}, "url": {}, "_index": 79}], ["path", {"content": {"com.andrioseptianto.marvelous": {}}, "url": {}, "_index": 18}], ["privat", {"content": {"com.andrioseptianto.marvelous": {}}, "url": {}, "_index": 59}], ["public", {"content": {"com.andrioseptianto.marvelous": {}}, "url": {}, "_index": 51}], ["recent", {"content": {"com.andrioseptianto.marvelous": {}}, "url": {}, "_index": 99}], ["repres", {"content": {"com.andrioseptianto.marvelous": {}}, "url": {}, "_index": 104}], ["request", {"content": {"com.andrioseptianto.marvelous": {}}, "url": {}, "_index": 22}], ["resourc", {"content": {"com.andrioseptianto.marvelous": {}}, "url": {}, "_index": 27}], ["resourceuri", {"content": {"com.andrioseptianto.marvelous": {}}, "url": {}, "_index": 34}], ["respons", {"content": {"com.andrioseptianto.marvelous": {}}, "url": {}, "_index": 86}], ["result", {"content": {"com.andrioseptianto.marvelous": {}}, "url": {}, "_index": 11}], ["return", {"content": {"com.andrioseptianto.marvelous": {}}, "url": {}, "_index": 15}], ["scheme", {"content": {"com.andrioseptianto.marvelous": {}}, "url": {}, "_index": 111}], ["separ", {"content": {"com.andrioseptianto.marvelous": {}}, "url": {}, "_index": 77}], ["seri", {"content": {"com.andrioseptianto.marvelous": {}}, "url": {}, "_index": 42}], ["set", {"content": {"com.andrioseptianto.marvelous": {}}, "url": {}, "_index": 31}], ["short", {"content": {"com.andrioseptianto.marvelous": {}}, "url": {}, "_index": 97}], ["site", {"content": {"com.andrioseptianto.marvelous": {}}, "url": {}, "_index": 102}], ["skip", {"content": {"com.andrioseptianto.marvelous": {}}, "url": {}, "_index": 23}], ["sort", {"content": {"com.andrioseptianto.marvelous": {}}, "url": {}, "_index": 84}], ["sp", {"content": {"com.andrioseptianto.marvelous": {}}, "url": {}, "_index": 70}], ["specifi", {"content": {"com.andrioseptianto.marvelous": {}}, "url": {}, "_index": 64}], ["spider", {"content": {"com.andrioseptianto.marvelous": {}}, "url": {}, "_index": 66}], ["statu", {"content": {"com.andrioseptianto.marvelous": {}}, "url": {}, "_index": 46}], ["stori", {"content": {"com.andrioseptianto.marvelous": {}}, "url": {}, "_index": 38}], ["string", {"content": {"com.andrioseptianto.marvelous": {}}, "url": {}, "_index": 47}], ["text", {"content": {"com.andrioseptianto.marvelous": {}}, "url": {}, "_index": 89}], ["thumbnail", {"content": {"com.andrioseptianto.marvelous": {}}, "url": {}, "_index": 103}], ["time", {"content": {"com.andrioseptianto.marvelous": {}}, "url": {}, "_index": 62}], ["timestamp", {"content": {"com.andrioseptianto.marvelous": {}}, "url": {}, "_index": 58}], ["total", {"content": {"com.andrioseptianto.marvelous": {}}, "url": {}, "_index": 26}], ["ts", {"content": {"com.andrioseptianto.marvelous": {}}, "url": {}, "_index": 60}], ["type", {"content": {"com.andrioseptianto.marvelous": {}}, "url": {}, "_index": 39}], ["uniqu", {"content": {"com.andrioseptianto.marvelous": {}}, "url": {}, "_index": 94}], ["url", {"content": {"com.andrioseptianto.marvelous": {}}, "url": {}, "_index": 100}], ["us", {"content": {"com.andrioseptianto.marvelous": {}}, "url": {}, "_index": 54}], ["usual", {"content": {"com.andrioseptianto.marvelous": {}}, "url": {}, "_index": 61}], ["valu", {"content": {"com.andrioseptianto.marvelous": {}}, "url": {}, "_index": 57}], ["web", {"content": {"com.andrioseptianto.marvelous": {}}, "url": {}, "_index": 101}]], "pipeline": ["stemmer"]};
+
+    const idx = lunr.Index.load(searchIndex);
+
+    function displaySearchResults() {
+        const query = new URLSearchParams(window.location.search).get('query');
+
+        if (query) {
+            document.getElementById('mainInputQuery').value = query;
+
+            const results = idx.query(function (q) {
+              words = query.toLowerCase().split(" "); // toLowerCase() is needed to make the search case insensitive.
+              for (n in words) {
+                const word = words[n];
+
+                if (!word) {
+                  continue;
+                }
+
+                // look for an exact match and apply a large positive boost
+                q.term(word, { usePipeline: true, boost: 100 })
+
+                // look for terms that match the beginning of this queryTerm and apply a medium boost
+                q.term(word + "*", { usePipeline: false, boost: 10 })
+              }
+            });
+
+            const searchResults = document.getElementById('searchResults');
+
+            if (results.length > 0) {
+                let resultList = ''
+                for (const n in results) {
+                    // Use the unique ref from the results list to get the full item
+                    // so you can build its <li>
+                    const doc = searchDocuments[results[n].ref]
+                    resultList += '<h5 class="title is-5 mt-3"><a href="' + doc.url + '">' + doc.package + '</a></h5>'
+                    // Add a short clip of the content
+                    resultList += '<p>' + doc.content.substring(0, 150) + '...</p><hr />'
+                }
+                searchResults.innerHTML = resultList
+            } else {
+                searchResults.innerHTML = '<p>No search results.</p>';
+            }
+        }
+    }
+
+    window.addEventListener("load", displaySearchResults);
+</script>
+
+  <div>
+    <p class="block">
+      Enter a query to search this documentation.
+    </p>
+    <div class="field is-horizontal">
+      <form class="field-body">
+        <div class="field">
+          <p class="control is-expanded">
+            <input id="mainInputQuery" type="text" name="query" class="input" placeholder="Search query">
+          </p>
+        </div>
+        <div class="field">
+          <p class="control is-expanded">
+            <input type="submit" class="button is-primary" value="Search" />
+          </p>
+        </div>
+      </form>
+    </div>
+    <div class="block mt-6">
+      <div id="searchResults"></div>
+    </div>
+  </div>
+</div>
+
+    <footer class="footer">
+      <div class="content has-text-centered">
+        
+        <p>Built with <strong><a href="https://github.com/markvincze/sabledocs" target="_blank">sabledocs</a></strong>.</p>
+      </div>
+    </footer>
+  </body>
+</html>

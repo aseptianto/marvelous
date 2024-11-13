@@ -8,110 +8,177 @@ option java_outer_classname = "MarvelGrpcImpl";
 
 // Request message for Marvel API
 message MarvelCharactersRequest {
+  // Public API Key that will be used to authenticate a Marvel API request
   string apikey = 1;
+  // Hash value of the timestamp and the private key
   string hash = 2;
+  // A timestamp value. Usually the current time
   string ts = 3;
+  // Return only characters matching the specified full character name (e.g. Spider-Man).
   string name = 4;
+  // Return characters with names that begin with the specified string (e.g. Sp).
   string nameStartsWith = 5;
+  // Return only characters which have been modified since the specified date.
   string modifiedSince = 6;
+  // Return only characters which appear in the specified comics (accepts a comma-separated list of ids).
   repeated int32 comics = 7;
+  // Return only characters which appear the specified series (accepts a comma-separated list of ids).
   repeated int32 series = 8;
+  // Return only characters which appear in the specified events (accepts a comma-separated list of ids).
   repeated int32 events = 9;
+  // Return only characters which appear in the specified stories (accepts a comma-separated list of ids).
   repeated int32 stories = 10;
+  // Order the result set by a field or fields. Add a "-" to the value sort in descending order.
   string orderBy = 11;
+  // Limit the result set to the specified number of resources.
   int32 limit = 12;
+  // Skip the specified number of resources in the result set.
   int32 offset = 13;
 }
 
 message MarvelApiError {
+  // HTTP status code
   int32 code = 1;
+  // A string description of the error
   string status = 2;
 }
 
 message MarvelCharactersResponse {
+  // HTTP status code
   int32 code = 1;
+  // A string description of the status of the response
   string status = 2;
+  // The attribution text of the data returned
   string copyright = 3;
+  // The attribution HTML of the data returned
   string attributionText = 4;
+  // The attribution HTML of the data returned
   string attributionHTML = 5;
+  // The data returned by the request
   Data data = 6;
+  // A unique identifier hash of the content returned
   string etag = 7;
 
   message Data {
+    // The requested offset (number of skipped results) of the call
     int32 offset = 1;
+    // The requested result limit
     int32 limit = 2;
+    // The total number of resources available given the current filter set
     int32 total = 3;
+    // The total number of results returned by this call
     int32 count = 4;
+    // The list of characters returned by the request
     repeated Result results = 5;
 
     message Result {
+      // The unique ID of the character resource
       int32 id = 1;
+      // The name of the character
       string name = 2;
+      // A short bio or description of the character
       string description = 3;
+      // The date the resource was most recently modified
       string modified = 4;
+      // The canonical URL identifier for this resource
       string resourceURI = 5;
+      // A set of public web site URLs for the resource
       repeated URL urls = 6;
+      // The representative image for this character
       Thumbnail thumbnail = 7;
+      // A resource list containing comics which feature this character
       Comics comics = 8;
+      // A resource list of stories in which this character appears
       Stories stories = 9;
+      // A resource list of events in which this character appears
       Events events = 10;
+      // A resource list of series in which this character appears
       Series series = 11;
 
       message URL {
+        // A text identifier for the URL
         string type = 1;
+        // A full URL (including scheme, domain, and path)
         string url = 2;
       }
 
       message Thumbnail {
+        // The path to the image
         string path = 1;
+        // The file extension for the image
         string extension = 2;
       }
 
       message Comics {
+        // The number of available comics in this list
         int32 available = 1;
+        // The number of returned comics in this collection
         int32 returned = 2;
+        // The path to the full list of comics in this collection
         string collectionURI = 3;
+        // The list of returned comics
         repeated Item items = 4;
 
         message Item {
+          // The path to the individual comic resource
           string resourceURI = 1;
+          // The canonical name of the comic
           string name = 2;
         }
       }
 
       message Stories {
+        // The number of available stories in this list
         int32 available = 1;
+        // The number of returned stories in this collection
         int32 returned = 2;
+        // The path to the full list of stories in this collection
         string collectionURI = 3;
+        // The list of returned stories
         repeated Item items = 4;
 
         message Item {
+          // The path to the individual story resource
           string resourceURI = 1;
+          // The canonical name of the story
           string name = 2;
+          // The type of the story (interior or cover)
           string type = 3;
         }
       }
 
       message Events {
+        // The number of available events in this list
         int32 available = 1;
+        // The number of returned events in this collection
         int32 returned = 2;
+        // The path to the full list of events in this collection
         string collectionURI = 3;
+        // The list of returned events
         repeated Item items = 4;
 
         message Item {
+          // The path to the individual event resource
           string resourceURI = 1;
+          // The canonical name of the event
           string name = 2;
         }
       }
 
       message Series {
+        // The number of available series in this list
         int32 available = 1;
+        // The number of returned series in this collection
         int32 returned = 2;
+        // The path to the full list of series in this collection
         string collectionURI = 3;
+        // The list of returned series
         repeated Item items = 4;
 
         message Item {
+          // The path to the individual series resource
           string resourceURI = 1;
+          // The canonical name of the series
           string name = 2;
         }
       }
@@ -120,5 +187,6 @@ message MarvelCharactersResponse {
 }
 
 service MarvelService {
+  // Get a list of characters
   rpc GetCharacters (MarvelCharactersRequest) returns (MarvelCharactersResponse) {}
 }
