@@ -5,9 +5,9 @@ import org.springframework.web.util.UriComponentsBuilder;
 
 public class MarvelUriUtil {
 
-    public static UriComponentsBuilder buildUri(String baseUrl, MarvelCharactersRequest request, String hash, String ts) {
+    public static UriComponentsBuilder buildUri(String baseUrl, MarvelCharactersRequest request, String hash, String ts, String apikey) {
         UriComponentsBuilder uriBuilder = UriComponentsBuilder.fromHttpUrl(baseUrl + "/characters")
-                .queryParam("apikey", request.getApikey())
+                .queryParam("apikey", apikey)
                 .queryParam("hash", hash)
                 .queryParam("ts", ts);
 

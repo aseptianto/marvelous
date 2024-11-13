@@ -65,6 +65,7 @@ public class MarvelWatcherService extends TextWebSocketHandler {
 
             String etag = cachedResponse.getEtag();
             String ts = String.valueOf(System.currentTimeMillis());
+            String apikey = marvelApiConfig.getPublicKey();
             String hash = HashUtil.generateHash(ts, marvelApiConfig.getPrivateKey(), marvelApiConfig.getPublicKey());
 
             // Deserialize the Base64 encoded string back to MarvelCharactersRequest
@@ -73,7 +74,7 @@ public class MarvelWatcherService extends TextWebSocketHandler {
                 continue;
             }
 
-            UriComponentsBuilder uriBuilder = MarvelUriUtil.buildUri(marvelApiConfig.getBaseUrl(), request, hash, ts);
+            UriComponentsBuilder uriBuilder = MarvelUriUtil.buildUri(marvelApiConfig.getBaseUrl(), request, hash, ts, apikey);
             String url = uriBuilder.toUriString();
 
             HttpHeaders headers = new HttpHeaders();
