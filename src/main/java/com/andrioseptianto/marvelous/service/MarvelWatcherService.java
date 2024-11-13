@@ -32,6 +32,10 @@ import java.util.stream.Collectors;
 
 import static com.andrioseptianto.marvelous.util.MarvelResponseConverter.convertData;
 
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+import java.util.concurrent.TimeUnit;
+
 @Service
 public class MarvelWatcherService extends TextWebSocketHandler {
 
@@ -42,6 +46,7 @@ public class MarvelWatcherService extends TextWebSocketHandler {
     private final RestTemplate restTemplate;
     private final CopyOnWriteArrayList<WebSocketSession> sessions = new CopyOnWriteArrayList<>();
     private final ObjectMapper objectMapper = new ObjectMapper();
+    private final ExecutorService executorService = Executors.newFixedThreadPool(5);
 
     public MarvelWatcherService(MarvelApiConfig marvelApiConfig, RedisTemplate<String, Object> redisTemplate) {
         this.marvelApiConfig = marvelApiConfig;
@@ -50,7 +55,7 @@ public class MarvelWatcherService extends TextWebSocketHandler {
         this.restTemplate.getMessageConverters().add(new MappingJackson2HttpMessageConverter());
     }
 
-    @Scheduled(fixedRate = 10000) // Run every 10 seconds
+    @Scheduled(fixedRate = 20000) // Run every 20 seconds
     public void watchForChanges() {
         Set<String> keys = redisTemplate.keys("characters_*");
         if (keys == null || keys.isEmpty()) {
@@ -58,60 +63,64 @@ public class MarvelWatcherService extends TextWebSocketHandler {
         }
 
         for (String key : keys) {
-            MarvelCharactersResponse cachedResponse = (MarvelCharactersResponse) redisTemplate.opsForValue().get(key);
-            if (cachedResponse == null) {
-                continue;
-            }
-
-            String etag = cachedResponse.getEtag();
-            String ts = String.valueOf(System.currentTimeMillis());
-            String apikey = marvelApiConfig.getPublicKey();
-            String hash = HashUtil.generateHash(ts, marvelApiConfig.getPrivateKey(), marvelApiConfig.getPublicKey());
-
-            // Deserialize the Base64 encoded string back to MarvelCharactersRequest
-            MarvelCharactersRequest request = MarvelRequestDecoderUtil.generateRequestFromKey(key);
-            if (request == null) {
-                continue;
-            }
-
-            UriComponentsBuilder uriBuilder = MarvelUriUtil.buildUri(marvelApiConfig.getBaseUrl(), request, hash, ts, apikey);
-            String url = uriBuilder.build(false).toUriString();
-
-            HttpHeaders headers = new HttpHeaders();
-            headers.set("If-None-Match", etag);
-            HttpEntity<String> entity = new HttpEntity<>(headers);
-
-            logger.info("Calling URL: {}", url);
-            logger.info("With headers: {}", entity.getHeaders());
-
-            try {
-                ResponseEntity<MarvelApiResponse> responseEntity = restTemplate.exchange(url, HttpMethod.GET, entity, MarvelApiResponse.class);
-
-                if (responseEntity.getStatusCode().value() == 200) {
-                    MarvelApiResponse apiResponse = responseEntity.getBody();
-                    if (apiResponse != null) {
-                        MarvelCharactersResponse response = MarvelCharactersResponse.newBuilder()
-                                .setCode(apiResponse.getCode())
-                                .setStatus(apiResponse.getStatus())
-                                .setCopyright(apiResponse.getCopyright())
-                                .setAttributionText(apiResponse.getAttributionText())
-                                .setAttributionHTML(apiResponse.getAttributionHTML())
-                                .setEtag(apiResponse.getEtag())
-                                .setData(convertData(apiResponse.getData()))
-                                .build();
-
-                        redisTemplate.opsForValue().set(key, response, 5, TimeUnit.MINUTES);
-                        logger.info("Updated cache for key: {}", key);
-                        broadcastUpdate(request);
-                    }
-                } else if (responseEntity.getStatusCode().value() == 304) {
-                    logger.info("No changes for key: {}", key);
-                }
-            } catch (Exception e) {
-                logger.error("Error checking for changes for key: {}", key, e);
-            }
+            executorService.submit(() -> processKey(key));
         }
     }
+
+    private void processKey(String key) {
+        MarvelCharactersResponse cachedResponse = (MarvelCharactersResponse) redisTemplate.opsForValue().get(key);
+        if (cachedResponse == null) {
+            return;
+        }
+
+        String etag = cachedResponse.getEtag();
+        String ts = String.valueOf(System.currentTimeMillis());
+        String apikey = marvelApiConfig.getPublicKey();
+        String hash = HashUtil.generateHash(ts, marvelApiConfig.getPrivateKey(), marvelApiConfig.getPublicKey());
+
+        MarvelCharactersRequest request = MarvelRequestDecoderUtil.generateRequestFromKey(key);
+        if (request == null) {
+            return;
+        }
+
+        UriComponentsBuilder uriBuilder = MarvelUriUtil.buildUri(marvelApiConfig.getBaseUrl(), request, hash, ts, apikey);
+        String url = uriBuilder.build(false).toUriString();
+
+        HttpHeaders headers = new HttpHeaders();
+        headers.set("If-None-Match", etag);
+        HttpEntity<String> entity = new HttpEntity<>(headers);
+
+        logger.info("Calling URL: {}", url);
+        logger.info("With headers: {}", entity.getHeaders());
+
+        try {
+            ResponseEntity<MarvelApiResponse> responseEntity = restTemplate.exchange(url, HttpMethod.GET, entity, MarvelApiResponse.class);
+
+            if (responseEntity.getStatusCode().value() == 200) {
+                MarvelApiResponse apiResponse = responseEntity.getBody();
+                if (apiResponse != null) {
+                    MarvelCharactersResponse response = MarvelCharactersResponse.newBuilder()
+                            .setCode(apiResponse.getCode())
+                            .setStatus(apiResponse.getStatus())
+                            .setCopyright(apiResponse.getCopyright())
+                            .setAttributionText(apiResponse.getAttributionText())
+                            .setAttributionHTML(apiResponse.getAttributionHTML())
+                            .setEtag(apiResponse.getEtag())
+                            .setData(convertData(apiResponse.getData()))
+                            .build();
+
+                    redisTemplate.opsForValue().set(key, response, 5, TimeUnit.MINUTES);
+                    logger.info("Updated cache for key: {}", key);
+                    broadcastUpdate(request);
+                }
+            } else if (responseEntity.getStatusCode().value() == 304) {
+                logger.info("No changes for key: {}", key);
+            }
+        } catch (Exception e) {
+            logger.error("Error checking for changes for key: {}", key, e);
+        }
+    }
+
 
     @Override
     public void afterConnectionEstablished(WebSocketSession session) throws Exception {
