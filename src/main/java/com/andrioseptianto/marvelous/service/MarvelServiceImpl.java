@@ -61,14 +61,12 @@ public class MarvelServiceImpl extends MarvelServiceGrpc.MarvelServiceImplBase {
         logger.info("Cache miss for key: {}", cacheKey);
         cacheMetrics.incrementCacheMiss();
 
-        String ts = request.getTs();
-        String hash = request.getHash();
-        if (ts.isEmpty() || hash.isEmpty()) {
-            ts = String.valueOf(System.currentTimeMillis());
-            hash = HashUtil.generateHash(ts, marvelApiConfig.getPrivateKey(), marvelApiConfig.getPublicKey());
-        }
+        String ts = String.valueOf(System.currentTimeMillis());
+        String apikey = marvelApiConfig.getPublicKey();
+        String hash = HashUtil.generateHash(ts, marvelApiConfig.getPrivateKey(), marvelApiConfig.getPublicKey());
 
-        UriComponentsBuilder uriBuilder = MarvelUriUtil.buildUri(marvelApiConfig.getBaseUrl(), request, hash, ts);
+
+        UriComponentsBuilder uriBuilder = MarvelUriUtil.buildUri(marvelApiConfig.getBaseUrl(), request, hash, ts, apikey);
         String url = uriBuilder.toUriString();
 
         try {
